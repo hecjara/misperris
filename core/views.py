@@ -9,11 +9,18 @@ from django.http import HttpResponseRedirect, Http404
 
 
 def home(request):
-    return render(request, 'core/home.html')
+    perros = PerroFundacion.objects.filter(estado=1)
+    return render(request, 'core/home.html',
+    {
+        'perros':perros
+    })
 
 
 def galeria(request):
     return render(request, 'core/galeria.html')
+
+
+
 
 
 
@@ -58,6 +65,16 @@ def formulario(request):
             variables['mensaje'] = 'No se ha podido guardar'
 
     return render(request, 'core/formulario.html', variables)
+
+
+
+
+
+
+
+
+    
+
 
 
 # CRUD PERROS FUNDACION
@@ -133,4 +150,3 @@ def modificar_perroFundacion(request, id):
         return redirect('perros-fundacion')
 
     return render(request, 'core/modificar_perro.html', variables)
-
