@@ -1,0 +1,92 @@
+{% extends "core/base.html" %}
+
+{% block contenido %}
+
+<h2>Modificar Perro</h2>
+
+<form action="" id="formuarioperro" method="POST">
+
+    {% csrf_token %}
+
+    <input type="hidden" name="txtid" id="txtid" value="{{ perro.id }}">
+
+    <label for ="">Nombre: </label>
+    <input type="text" name="txtnombre" id="txtnombre" value="{{ perro.nombre }}">
+    
+    <br>
+    
+    <label for="">Raza: </label>                    
+    <select  name="cboraza" id="cboraza">
+        <option value="">Seleccionar</option>
+
+        {% for ra in razas %}
+            <option 
+            
+            {% if ra.id == perro.raza.id %}
+                {{'selected'}}
+            {% endif %}
+            
+            value="{{ ra.id }}">{{ ra.nombre }}</option>
+        {% endfor %}
+
+    </select>
+
+    <br>
+
+    <label for="">Género:</label>
+    <select  name="cbogenero" id="cbogenero">
+        <option value="">Seleccionar</option>
+
+        {% for g in generos %}
+            <option 
+            
+            {% if g.id == perro.genero.id %}
+            {{'selected'}}
+            {% endif %}
+            value="{{ g.id }}">{{ g.nombre }}</option>
+        {% endfor %}
+
+    </select>
+
+    <br>
+
+    <label for="">Fecha Ingreso:</label> 
+    <input type="date" name="dtFechaIngreso" id="dtFechaIngreso" value="{{ perro.fecha_ingreso }}">
+
+    <br>
+
+    <label for="">Fecha Nacimiento:</label>
+    <input type="date" name="" id="" value="{{ perro.fecha_nacimiento }}">
+
+    <br>
+
+    <label for="">Descripción:</label>
+    <input type="text" name="txtdescripcion" id="txtdescripcion" value="{{ perro.descripcion }}">
+
+    <br>
+
+    <label for="">Estado:</label>
+    <select  name="cboestado" id="cboestado">
+        <option value="">Seleccionar</option>
+
+        {% for e in estados %}
+        <option 
+        
+        {% if e.id == perro.estado.id %}
+        {{'selected'}}
+        {% endif %}
+        
+        
+        value="{{ e.id }}">{{ e.nombre }}</option>
+        {% endfor %}
+
+    </select>
+
+    <br>
+
+    <input type="submit" class="button" value="Modificar" id="btnModificar" name="btnModificar">
+</form>
+
+<h3>{{ mensaje }}</h3>
+   
+{% endblock contenido %}

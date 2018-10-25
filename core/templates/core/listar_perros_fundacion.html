@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+
+{% block contenido %}
+
+    <h2>Listado de perros de la fundación</h2>
+
+    <table>
+
+       <tr>
+            <th>Nombre</td>
+            <th>Raza</td>
+            <th>Fecha Ingreso</td>
+            <th>Fecha Nacimiento</td>
+            <th>Descripcion</td>
+            <th>Estado</td>
+            <th>Género</th>
+            <th>Opciones</th>
+        
+       </tr>
+
+       {% for a in perroFundacion %}
+       
+        <tr>
+            <td>{{ a.nombre }}</td>
+            <td>{{ a.raza.nombre }}</td>
+            <td>{{ a.fechaIngreso }}</td>
+            <td>{{ a.fechaNacimiento }}</td>
+            <td>{{ a.descripcion }}</td>
+            <td>{{ a.estado.nombre }}</td>
+            <td>{{ a.genero.nombre }}</td>
+            <td>
+                <a href="{% url 'eliminar_perro' a.id %}">Eliminar</a>
+                <a href="{% url 'modoficar-perro' a.id %}">Modificar</a>
+            </td>
+
+
+        </tr>
+
+       {% endfor %}
+
+    </table>
+
+    {% if messages %}
+
+        {% for m in messages %}
+
+            <div>{{ m }}</div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock contenido %}
