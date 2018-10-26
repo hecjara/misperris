@@ -25,13 +25,13 @@ def galeria(request):
 
     })
 
-def listar_perros(request):
-    perros = PerroFundacion.objects.filter(estado=1)
-    return render(request, 'core/listar_perros_fundacion.html',{
+
+
+def listaperro(request):
+    perros = PerroFundacion.objects.all()
+    return render(request, 'core/listaperro.html',{
         'perros':perros
     })
-
-
 
 
 @login_required

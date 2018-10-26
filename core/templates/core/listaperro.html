@@ -1,0 +1,80 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+
+<div class="landing">
+    <div class="slider">
+
+        {% for p in perros %}
+        <div >
+            
+                <img src="{{ p.imagen.url }}" class="imagen_landing" title="{{ p.descripcion }}">
+        
+        
+        </div>
+        
+
+        
+        {% endfor %}
+
+    </div>
+
+    <div class="landing_inferior">
+        <h1 class="color_blanco centrar_texto">+56 9 98765431</h1>
+        <h1 class="color_blanco centrar_texto">Rescate y adopción de perros callejeros</h1>
+        <ul class="social">            
+                <li><img src="{% static 'core/img/socialfacebook.png' %}" alt="facebook"></li>
+                <li><img src="{% static 'core/img/socialplus.png' %}" alt="plus"></li>
+                <li><img src="{% static 'core/img/social-inst.png' %}" alt="instagram"></li>
+                <li><img src="{% static 'core/img/correo.png' %}" alt="mail"></li>
+        </ul>
+    </div>
+
+
+</div>
+
+
+{% block contenido %}
+<h2>Listado de perros de la fundación</h2>
+<table>
+   <tr>
+        <th>Nombre</td>
+        <th>Raza</td>
+        <th>Fecha Ingreso</td>
+        <th>Fecha Nacimiento</td>
+        <th>Descripcion</td>
+        <th>Estado</td>
+        <th>Género</th>
+        <th>Opciones</th>
+   </tr>
+
+   {% for a in perros %}
+    <tr>
+        <td>{{ a.nombre }}</td>
+        <td>{{ a.raza.nombre }}</td>
+        <td>{{ a.fechaIngreso }}</td>
+        <td>{{ a.fechaNacimiento }}</td>
+        <td>{{ a.descripcion }}</td>
+        <td>{{ a.estado.nombre }}</td>
+        <td>{{ a.genero.nombre }}</td>
+        <td>
+            <a href="{% url 'eliminar_perro' a.id %}">Eliminar</a>
+            <a href="{% url 'modoficar-perro' a.id %}">Modificar</a>
+        </td>
+    </tr>
+   {% endfor %}
+</table>
+
+<br>
+
+<a href="{% url 'formulario' %}">
+    <button class="butn">Agregar Perro</button>
+</a>
+
+    {% if messages %}
+        {% for m in messages %}
+            <div>{{ m }}</div>
+        {% endfor %}
+    {% endif %}
+{% endblock contenido %}    
