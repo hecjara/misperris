@@ -37,18 +37,19 @@
 
 {% block contenido %}
 <h2>Listado de perros de la fundación</h2>
-<table class="table table-dark">
-   <tr>
-        <th>Nombre</td>
-        <th>Raza</td>
-        <th>Fecha Ingreso</td>
-        <th>Fecha Nacimiento</td>
-        <th>Descripcion</td>
-        <th>Estado</td>
-        <th>Género</th>
-        <th>Opciones</th>
-   </tr>
-
+<table class="table table-striped">
+    <thead>
+        <tr>
+                <th>Nombre</td>
+                <th>Raza</td>
+                <th>Fecha Ingreso</td>
+                <th>Fecha Nacimiento</td>
+                <th>Descripcion</td>
+                <th>Estado</td>
+                <th>Género</th>
+                <th>Opciones</th>
+        </tr>
+    </thead>     
    {% for a in perros %}
     <tr>
         <td>{{ a.nombre }}</td>
@@ -63,6 +64,7 @@
             <a href="{% url 'modoficar-perro' a.id %}">Modificar</a>
         </td>
     </tr>
+    
    {% endfor %}
 </table>
 
