@@ -31,11 +31,8 @@ def listar_perros(request):
         'perros':perros
     })
 
-def perros_funda(request):
-    perros = PerroFundacion.objects.filter(estado=1)
-    return render(request, 'core/listar_perros_fundacion.html',{
-        'perros':perros
-    })
+
+
 
 @login_required
 def formulario(request):
