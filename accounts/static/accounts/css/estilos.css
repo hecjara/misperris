@@ -1,0 +1,54 @@
+h2 {
+    text-align: center
+    
+}
+.h2{
+    color:white
+}
+
+label{
+    color:white;
+    font-weight: bold
+    
+}
+
+form {
+    text-align: center
+    
+}
+
+html {
+    background-color: rgb(133,212,183)
+}
+
+.centrado{
+    margin:10px auto;
+    display:block;
+}
+
+.butn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #3489d9;
+    padding: 10px 20px 10px 20px;
+    border: solid #000000 2px;
+    text-decoration: none;
+}
+  
+
+.butn:hover {
+    text-decoration: none;
+}
+
+.formulario{
+    text-align: left
+}
+
+.titulo{
+    text-align: left;
+    color:white;
+}

@@ -2,7 +2,46 @@
 
 {% load static %}
 
+<div class="landing">
+        <div class="slider">
+
+            {% for p in perros %}
+            <div >
+                
+                    <img src="{{ p.imagen.url }}" class="imagen_landing" title="{{ p.descripcion }}">
+            
+            
+            </div>
+            
+            
+            {% endfor %}
+
+        </div>
+
+        <div class="landing_inferior">
+                <h1 class="color_blanco centrar_texto">+56 9 98765431</h1>
+                <h1 class="color_blanco centrar_texto">Rescate y adopción de perros callejeros</h1>
+                <ul class="social">            
+                        <li><img src="{% static 'core/img/socialfacebook.png' %}" alt="facebook"></li>
+                        <li><img src="{% static 'core/img/socialplus.png' %}" alt="plus"></li>
+                        <li><img src="{% static 'core/img/social-inst.png' %}" alt="instagram"></li>
+                        <li><img src="{% static 'core/img/correo.png' %}" alt="mail"></li>
+                </ul>
+            </div>
+
+</div>
+
+
 {% block contenido %}
+<h2>Perros Rescatados</h2>
+
+{% for g in perros2 %}
+        <img class="galeria img" src="{{ g.imagen.url }}" alt="{{ g.descripcion }}"> 
+
+{% endfor %}
+
+
+<!--
 
 <div class="galeria">
     <a data-fancybox="gallery" data-caption="Bigotes jugando con su mascota de peluche alegre"  
@@ -29,6 +68,17 @@
     href="{% static 'core/img/rescatados/Wifi.jpg' %}">
     <img src="{% static 'core/img/rescatados/Wifi.jpg' %}"></a>
 </div> 
+
+
+
+-->
+
+
+
+
+
+
+
 
 
 

@@ -17,12 +17,25 @@ def home(request):
 
 
 def galeria(request):
-    return render(request, 'core/galeria.html')
+    perros = PerroFundacion.objects.filter(estado=1)
+    perros2 = PerroFundacion.objects.filter(estado=2)
+    return render(request, 'core/galeria.html',{
+        'perros':perros,
+        'perros2':perros2
 
+    })
 
+def listar_perros(request):
+    perros = PerroFundacion.objects.filter(estado=1)
+    return render(request, 'core/listar_perros_fundacion.html',{
+        'perros':perros
+    })
 
-
-
+def perros_funda(request):
+    perros = PerroFundacion.objects.filter(estado=1)
+    return render(request, 'core/listar_perros_fundacion.html',{
+        'perros':perros
+    })
 
 @login_required
 def formulario(request):
@@ -30,16 +43,18 @@ def formulario(request):
     generos = Genero.objects.all()
     razas = Raza.objects.all()
     estados = Estado.objects.all()
+    perros = PerroFundacion.objects.filter(estado=1)
     variables = {
         'generos': generos,
         'razas': razas,
-        'estados': estados
+        'estados': estados,
+        'perros':perros
     }
 
     if(request.POST):
 
         #PERMISOS PARA VOLUNTARIOS Y MIEMBROS DEL STAFF
-        if not request.user.is_staff or not request.user.VOLUNTARIOS:
+        if not request.user.is_staff or not request.user.is_Voluntario:
             raise Http404
 
         perro = PerroFundacion()

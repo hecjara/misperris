@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/css/estilos.css' %}">
     <title>Registro de usuario</title>
 </head>
 <body>
+    <img  src="{% static 'core/img/logo.png' %}" alt="logo">
 
-    <h2>Registro de usuario</h2>
+    <h2 class="titulo">Registro de usuario</h2>
 
-    <form action="" method="POST">
+    <form action="" method="POST" class="formulario">
 
         {% csrf_token %}
 
         {{ form.as_p }}
 
-        <input type="submit" value="Registrar">
+        <input type="submit" value="Registrar" class="butn">
 
     </form>
 

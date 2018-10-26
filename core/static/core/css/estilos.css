@@ -57,6 +57,9 @@ header {
     color:white;
     font-weight: bold;
 }*/
+
+
+
 .navegacion {
     float: right;
     left: 35%;
@@ -103,10 +106,10 @@ header {
 }
 
 .imagen_landing {
-    width: 900px;
+    width: 500px;
     height: 400px;
     margin:auto;
-    display: block;
+    display: inline-block;
 }
 
 .eslogan {
@@ -326,6 +329,25 @@ footer {
     }
   
   }
+
+
+  .butn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #3489d9;
+    padding: 10px 20px 10px 20px;
+    border: solid #000000 2px;
+    text-decoration: none;
+}
+  
+
+.butn:hover {
+    text-decoration: none;
+}
 
 
 

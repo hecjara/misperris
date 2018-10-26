@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/css/estilos.css' %}">
+    <title>Login Mis Perris</title>
 </head>
 <body>
     
-    <h2>Ingresa tus credenciales</h2>
+    <img src="{% static 'core/img/logo.png' %}" alt="logo">
 
-    <form action="" method="post">
+    <h2 class="h2" >Ingresa tus credenciales</h2>
+    
+    <form action="" method="post" class="posicion">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="login">
+        <input type="submit" value="login" class="butn">
 
 
     </form>

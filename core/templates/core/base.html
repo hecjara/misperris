@@ -19,7 +19,7 @@
 <body>
     <!--este es un comentario-->
    <header>
-       <img class="logo" src="{% static 'core/img/logo.png' %}" alt="logo">
+       <img class="logo" src="{% static 'accounts/img/logo.png' %}" alt="logo">
        <ul class="navegacion">
             <li><a href="{% url 'home' %}">Inicio</a></li>
             <li><a href="#">Quienes Somos</a></li>
@@ -29,13 +29,13 @@
             
             {% if request.user.is_authenticated %}
                 <li>
-                    <a href="{% url 'formulario' %}">Registro Perro</a>
+                    <a href="{% url 'listar_perros_fundacion' %}">Administrar Perros</a>
                 </li>
                 <li>
                     <a href="{% url 'logout' %}">Cerrar sesión</a>
                 </li>
-                
 
+    
             {% else %}
 
                 <li>
@@ -54,58 +54,43 @@
 
     </header>
 
-
-
-
     <div class="landing">
+        <div class="slider">
 
-            <div class="slider">
-                    <div>
-                        
-                        {% for p in perros %}
-
- 
-                            <img src="{{ p.imagen.url }}" alt="" width="300" height="300">
-                    
+            {% for p in perros %}
+            <div >
+                
+                    <img src="{{ p.imagen.url }}" class="imagen_landing" title="{{ p.descripcion }}">
             
-                        
-                        {% endfor %}
+            
+            </div>
+            
+            <div class="landing_inferior">
+                <h1 class="color_blanco centrar_texto">+56 9 98765431</h1>
+                <h1 class="color_blanco centrar_texto">Rescate y adopción de perros callejeros</h1>
+                <ul class="social">            
+                        <li><img src="{% static 'core/img/socialfacebook.png' %}" alt="facebook"></li>
+                        <li><img src="{% static 'core/img/socialplus.png' %}" alt="plus"></li>
+                        <li><img src="{% static 'core/img/social-inst.png' %}" alt="instagram"></li>
+                        <li><img src="{% static 'core/img/correo.png' %}" alt="mail"></li>
+                </ul>
+            </div>
+            
+            {% endfor %}
+
+        </div>
 
 
-                    </div>
-                  
-                  </div>        
+    </div>
 
-
-
-
-
-      
-
-
-
-        
     
 
-            <!--
 
-            <div class="slider">
 
-            <div>
-                <img title="Apolo viaja feliz con sus nuevos dueños" class="imagen_landing" src="{% static 'core/img/adoptados/Apolo.jpg' %}" alt="Apolo">   
-            </div>
-            <div>
-                <img title="Duque disfruta de la hermosa vista que da la montaña" class="imagen_landing" src="{% static 'core/img/adoptados/Duque.jpg' %}" alt="Duque">   
-            </div>
-            <div>
-                <img title="Tom se toma un merecido descanzo despues de estar jugando con Sofia" class="imagen_landing" src="{% static 'core/img/adoptados/Tom.jpg' %}" alt="Tom">   
-            </div>    
+            
 
-            </div>
-            -->
-
-        
-       
+            
+<!--
         <div class="landing_inferior">
             <h1 class="color_blanco centrar_texto">+56 9 98765431</h1>
             <h1 class="color_blanco centrar_texto">Rescate y adopción de perros callejeros</h1>
@@ -116,7 +101,13 @@
                     <li><img src="{% static 'core/img/correo.png' %}" alt="mail"></li>
             </ul>
         </div>
-    </div>
+
+
+-->
+        
+       
+
+
 
     <div class="contenido">
 

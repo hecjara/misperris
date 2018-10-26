@@ -5,6 +5,6 @@ $(document).ready(function(){
         captions:true, 
         auto: true,
         autoControls: true
-        
+         
     });
 });
