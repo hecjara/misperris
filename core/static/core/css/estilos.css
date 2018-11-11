@@ -3,6 +3,7 @@
     padding: 0;
 }
 
+
 .bx-wrapper {
     background-color: rgb(133,212,183)!important;
     border:none!important;
@@ -29,40 +30,10 @@ header {
     margin-left:10px;
 }
 
-/*.navegacion {
-    float:right;
-    margin-top: 20px;
-    margin-left: 10%;
-}
-
-.navegacion li {
-    display: inline-block;
-    margin-left: 30px;
-    width: 100px;
-    height: 40px;
-    
-    background-color: rgb(133,212,183);
-    text-align: center;
-    padding-top: 16px;
-    transition: border-radius 0.5s;
-}
-
-.navegacion li:hover {
-    border-radius: 20px;
-
-}
-
-.navegacion li a {
-    color:white;
-    font-weight: bold;
-}*/
-
-
-
 .navegacion {
-    /*float: right;*/
-    left: 35%;
-    margin:auto;
+    float: right;
+    left: 100%;
+    margin:auto auto;
     margin-right:10px;
    /*position:relative;*/
 }
@@ -134,28 +105,41 @@ header {
     width: 100%;
 }
 
-
 .color_blanco {
     color:white;
     font-size: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.texto_carusel {
+    background: rgba(0,0,0,55%);
+    margin: auto;
+    font-weight: bold;
+}
+
+.titulo_galeria {
+    text-align: center;
+    margin: 25px auto;
 }
 
 .contenido {
 margin:auto;
 position: relative;
 width: 100%;
-margin-top: 10px;
+margin-top: auto;
 }
 
 footer {
     left:0px;
-    bottom:0px;
-    height:30px;
+    position: relative;
+    padding: 10px 10px;
+    display: inline-block;
+    margin-bottom: 0%;
     width:auto;
     color: black;
     background:rgb(230,230,230);
+    
 }
 
 .centrar_texto {
@@ -172,13 +156,18 @@ footer {
 }
 
 .lineaIzq
-{    width: 10%;
+{   width: 10%;
     float: right;
-    border: 1px solid black;}
+    margin: 10px 0px;
+    border: 1px solid black;
+}
+
 .lineaDer
 {    width: 10%;
     float: left;    
-    border: 1px solid black; }
+    margin: 10px 0px;
+    border: 1px solid black; 
+}
 
 
 .lateral
@@ -186,23 +175,42 @@ footer {
     width: 45%;  /*Este será el ancho que tendrá tu columna*/
     float:left; /*Aqui determinas de lado quieres quede esta "columna" */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
+
+.texto_izq {
+    text-align: right;
+    margin: 0 0 0 0;
+}
+
 .principal
 {
     margin-left:50%; /*Este margen hace que no se encime el contenido en tu menúlateral, es     importante que pongas un pocos pixeles más que el ancho  de tu columna lateral*/
     background-color: #FFFFFF;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-    .rescate{
+
+}
+
+.color_gris{
+    color: 	#a6a6a6;
+}
+
+.rescate{
     float: right;
     width: 290px;
-    height: 150px;
+    height: auto;
 }
 
 .crowfunding{
     
-    width: 250px;
-    height: 240px;
+    width: 200px;
+    height: auto;
+}
+
+.tamanio_fuente {
+
+    font-size: 20px;
+
 }
 
 .button2{ 
@@ -229,10 +237,14 @@ footer {
     border-radius: 8px;
   }
   
+
   h1 {
     margin: 0 0 30px 0;
     text-align: center;
   }
+
+
+
   
   input[type="text"],
   input[type="password"],
@@ -356,11 +368,29 @@ footer {
         
     }
 
+    .crowfunding{
+        width: 160px;
+        height: auto;
+    }
+
+    .rescate{
+        float: right;
+        width: 170px;
+        height: auto;
+    }
     
+    .tamanio_fuente {
+    
+        font-size: 16px;
+    
+    }
+
+    
+
 
     .centrar_texto  {
         text-align: center;
-}
+    }
     .imagen_landing {
         width: 100%;
         height: auto;
@@ -399,7 +429,6 @@ footer {
     .logo {
         width: 150px;
         height: 60px;
-        /*este es un comentario*/
         margin-top:10px;
         margin-left:10px;
     }
