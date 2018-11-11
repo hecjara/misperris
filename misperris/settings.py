@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'accounts', 
     'social_django',
     'crispy_forms',
+    'api',
 ]
 
 CRISPY_TEMPLATE_PACK ='bootstrap4'  #libreria booststrap4
