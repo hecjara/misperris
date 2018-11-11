@@ -41,3 +41,33 @@ def agregar_perro(request):
             'mensaje':'error al guardar'
         }
         return HttpResponseBadRequest(json.dumps(mensaje), content_type="application/json")
+
+
+@csrf_exempt
+@require_http_methods(['PUT'])
+def modificar_perro(request):
+    body = request.body.decode('utf-8')
+
+    body_diccionario = json.loads(body)
+
+    perro = PerroFundacion()
+    perro.id = body_diccionario['id']
+    perro.nombre = body_diccionario['nombre']
+    perro.raza = Raza(id=body_diccionario['raza_id'])
+    perro.genero = Genero(id=body_diccionario['genero_id'])
+    perro.fechaIngreso = body_diccionario['fechaIngreso']
+    perro.fechaNacimiento = body_diccionario['fechaNacimiento']
+    perro.estado = Estado(id=body_diccionario['estado_id'])
+
+    try:
+        perro.save()
+        mensaje = {
+            'mensaje':'modificado correctamente'
+        }
+        return HttpResponse(json.dumps(mensaje), content_type="application/json")
+    except:
+        mensaje = {
+            'mensaje':'error al modificar'
+        }
+        return HttpResponseBadRequest(json.dumps(mensaje), content_type="application/json")
+
