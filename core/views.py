@@ -3,17 +3,20 @@ from .models import Raza, Estado, Genero, PerroFundacion
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, Http404
-
+from django_xhtml2pdf.utils import pdf_decorator
 
 # Create your views here.
 
-
+#@login_required    = para que una ventana requiera login previo
 def home(request):
     perros = PerroFundacion.objects.filter(estado=1)
     return render(request, 'core/home.html',
     {
         'perros':perros
     })
+
+
+
 
 
 def galeria(request):
@@ -162,3 +165,14 @@ def modificar_perroFundacion(request, id):
         return redirect('perros-fundacion')
 
     return render(request, 'core/modificar_perro.html', variables)
+
+
+
+
+
+@pdf_decorator(pdfname="perros.pdf")
+def perros_pdf(request):
+    perros = PerroFundacion.objects.all()
+    return render(request, 'core/perros_pdf.html',{
+       'perros':perros 
+    })

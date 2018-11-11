@@ -25,38 +25,11 @@ header {
 .logo {
     width: auto;
     height: auto;
-    /*este es un comentario*/
     margin-top:10px;
     margin-left:10px;
 }
 
-/*.navegacion {
-    float:right;
-    margin-top: 20px;
-    margin-left: 10%;
-}
 
-.navegacion li {
-    display: inline-block;
-    margin-left: 30px;
-    width: 100px;
-    height: 40px;
-    
-    background-color: rgb(133,212,183);
-    text-align: center;
-    padding-top: 16px;
-    transition: border-radius 0.5s;
-}
-
-.navegacion li:hover {
-    border-radius: 20px;
-
-}
-
-.navegacion li a {
-    color:white;
-    font-weight: bold;
-}*/
 .navegacion {
     float: right;
     left: 35%;
@@ -319,6 +292,9 @@ footer {
     border-radius: 100%;
   }
   
+
+
+  
   @media screen and (min-width: 480px) {
   
     form {
@@ -326,24 +302,6 @@ footer {
     }
   
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media (max-width:1024px) {
 
@@ -391,7 +349,6 @@ footer {
     .logo {
         width: 150px;
         height: 60px;
-        /*este es un comentario*/
         margin-top:10px;
         margin-left:10px;
     }

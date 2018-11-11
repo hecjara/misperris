@@ -2,54 +2,27 @@
 
 {% load static %}
 
-
-<div class="landing">
-    <div class="slider">
-
-        {% for p in perros %}
-        <div >
-            
-                <img src="{{ p.imagen.url }}" class="imagen_landing" title="{{ p.descripcion }}">
-        
-        
-        </div>
-        
-
-        
-        {% endfor %}
-
-    </div>
-
-    <div class="landing_inferior">
-        <h1 class="color_blanco centrar_texto">+56 9 98765431</h1>
-        <h1 class="color_blanco centrar_texto">Rescate y adopción de perros callejeros</h1>
-        <ul class="social">            
-                <li><img src="{% static 'core/img/socialfacebook.png' %}" alt="facebook"></li>
-                <li><img src="{% static 'core/img/socialplus.png' %}" alt="plus"></li>
-                <li><img src="{% static 'core/img/social-inst.png' %}" alt="instagram"></li>
-                <li><img src="{% static 'core/img/correo.png' %}" alt="mail"></li>
-        </ul>
-    </div>
-
-
-</div>
-
-
 {% block contenido %}
+
+<!--
+
+
+
 <h2>Listado de perros de la fundación</h2>
-<table class="table table-striped">
-    <thead>
-        <tr>
-                <th>Nombre</td>
-                <th>Raza</td>
-                <th>Fecha Ingreso</td>
-                <th>Fecha Nacimiento</td>
-                <th>Descripcion</td>
-                <th>Estado</td>
-                <th>Género</th>
-                <th>Opciones</th>
-        </tr>
-    </thead>     
+
+<a href="{% url 'perros_pdf' %}">Exportar a PDF</a> 
+
+<table>
+    <tr>
+        <td>Nombre</td>
+        <td>Raza</td>
+        <td>Fecha Ingreso</td>
+        <td>Fecha Nacimiento</td>
+        <td>Descripcion</td>
+        <td>Estado</td>
+        <td>Género</td>
+        <td>Opciones</td>
+    </tr>         
    {% for a in perros %}
     <tr>
         <td>{{ a.nombre }}</td>
@@ -67,6 +40,92 @@
     
    {% endfor %}
 </table>
+
+
+
+
+-->
+
+
+<h2>Listado de perros de la fundación</h2>
+
+<a href="{% url 'perros_pdf' %}">Exportar a PDF</a> <!--referencia al alias de la url-->
+
+<div class="container">
+    <table class="table table-bordered table-hover table-condensed">
+        <thead>
+            <tr class="success">
+                <th>Nombre</th>
+                <th>Raza</th>
+                <th>Fecha Ingreso</th>
+                <th>Fecha Nacimiento</th>
+                <th>Descripcion</th>
+                <th>Estado</th>
+                <th>Género</th>
+                <th>Opciones</th>
+            </tr>  
+        </thead>
+        <tbody>
+            {% for a in perros %}
+                <tr>
+                    <td>{{ a.nombre }}</td>
+                    <td>{{ a.raza.nombre }}</td>
+                    <td>{{ a.fechaIngreso }}</td>
+                    <td>{{ a.fechaNacimiento }}</td>
+                    <td>{{ a.descripcion }}</td>
+                    <td>{{ a.estado.nombre }}</td>
+                    <td>{{ a.genero.nombre }}</td>
+                    <td>
+                        <a href="{% url 'eliminar_perro' a.id %}">Eliminar</a>
+                        <a href="{% url 'modoficar-perro' a.id %}">Modificar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+<!--
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+
+-->
 
 <br>
 
