@@ -6,20 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load static %}
     <title>Registro de usuario</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/estilos.css' %}">
     <!--links boostrap4-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
+
+<style>
+
+    body{
+        background: rgb(133,212,183);
+    }
+
+</style>
+
 <body>
 
     {% load crispy_forms_tags %} <!--cargar plugin crispy-->
 
-    <div class="container">
-        <img  src="{% static 'core/img/logo.png' %}" alt="logo">
+    <div class="container color_fondo">
+        <br>
 
-        <h2 class="titulo">Registro de usuario</h2>
+        <div class="encabezado">
+
+            <img class="logo" src="{% static 'core/img/logo.png' %}" alt="logo">
+    
+            <h2 class="letra_blanca titulo">Registro de usuario</h2>
+
+            <br>
+
+        </div>
+
         
-        <form action="" method="POST" class="formulario">
+        <form action="" method="POST" class="formulario letra_blanca" >
                 {% csrf_token %}
         
                 {{ form | crispy }}

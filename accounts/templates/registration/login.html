@@ -6,20 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% load static %}
     <title>Login Mis Perris</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/estilos.css' %}">
     <!--links boostrap4-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
+
+<style>
+
+    body{
+        background: rgb(133,212,183);
+    }
+    
+</style>
+
+
 <body>
     
     {% load crispy_forms_tags %} <!--cargar plugin crispy-->
+    <br>
+    <div class="container color_fondo">
+        <img src="{% static 'accounts/img/logo.png' %}" alt="logo">
 
-    <div class="container">
-        <img src="{% static 'core/img/logo.png' %}" alt="logo">
-
-        <h2 class="h2" >Ingresa tus credenciales</h2>
+        <h2 class="letra_blanca" >Ingresa tus credenciales</h2>
             
-        <form action="" method="post">
+        <form action="" method="post" class="letra_blanca" >
             {% csrf_token %}
             <table>
                 {{ form | crispy }}
@@ -27,14 +40,18 @@
             <input type="submit" value="login" class="btn btn-info">
         </form>
         <hr>
-        <a href="{% url 'register' %}">Registrate</a>
+        
+                                                                                                <!--&nbsp; = espacio-->
+        <a  href="{% url 'register' %}" class="btn btn-success">Registrate</a>
         <hr>
-        <a href="{% url 'social:begin' 'facebook' %}">Login con Facebook</a>
+        <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary"><i class="fab fa-facebook-f"></i>&nbsp; Login con Facebook</a>
+
+        <!--
         <hr>
         <a href="{% url 'social:begin' 'github' %}">Login con GitHub</a>
         <hr>
         <a href="{% url 'social:begin' 'google-oauth2' %}">Login con Google</a>
-
+        -->
         <br>
 
     </div>
