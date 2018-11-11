@@ -71,3 +71,20 @@ def modificar_perro(request):
         }
         return HttpResponseBadRequest(json.dumps(mensaje), content_type="application/json")
 
+
+@csrf_exempt
+@require_http_methods(['DELETE'])
+def eliminar_perro(request, id):
+
+    try:
+        perro = PerroFundacion.objects.get(id=id)
+        perro.delete()
+        mensaje = {
+            'mensaje':'eliminado correctamente'
+        }
+        return HttpResponse(json.dumps(mensaje), content_type="application/json")
+    except:
+        mensaje = {
+            'mensaje':'no se ha podido eliminar'
+        }
+        return HttpResponseBadRequest(json.dumps(mensaje), content_type="application/json")
