@@ -15,9 +15,6 @@ def home(request):
         'perros':perros
     })
 
-#prueba git
-
-
 
 def galeria(request):
     perros = PerroFundacion.objects.filter(estado=1)
