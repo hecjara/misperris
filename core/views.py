@@ -51,8 +51,8 @@ def formulario(request):
     if(request.POST):
 
         #PERMISOS PARA VOLUNTARIOS Y MIEMBROS DEL STAFF
-        if not request.user.is_staff or not request.user.is_Voluntario:
-            raise Http404
+        #if not request.user.is_staff or not request.user.is_Voluntario:
+        #    raise Http404
 
         perro = PerroFundacion()
         perro.nombre = request.POST.get('txtnombre')
@@ -79,16 +79,6 @@ def formulario(request):
     return render(request, 'core/formulario.html', variables)
 
 
-
-
-
-
-
-
-    
-
-
-
 # CRUD PERROS FUNDACION
 
 def listar_perros_fundacion(request):
@@ -103,8 +93,8 @@ def listar_perros_fundacion(request):
 def eliminar_perroFundacion(request, id):
 
     #PERMISOS PARA VOLUNTARIOS Y MIEMBROS DEL STAFF
-    if not request.user.is_staff or not request.user.VOLUNTARIOS:
-        raise Http404
+    #if not request.user.is_staff or not request.user.VOLUNTARIOS:
+    #    raise Http404
 
     perroFundacion = PerroFundacion.objects.get(id=id)
 
@@ -122,8 +112,8 @@ def eliminar_perroFundacion(request, id):
 def modificar_perroFundacion(request, id):
 
     #PERMISOS PARA VOLUNTARIOS Y MIEMBROS DEL STAFF
-    if not request.user.is_staff or not request.user.VOLUNTARIOS:
-        raise Http404
+    #if not request.user.is_staff or not request.user.VOLUNTARIOS:
+    #    raise Http404
 
     perro = PerroFundacion.objects.get(id=id)
     generos = Genero.objects.all()
