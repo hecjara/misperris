@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'social_django',
     'crispy_forms',
     'api',
+    'pwa',
 ]
 
 CRISPY_TEMPLATE_PACK ='bootstrap4'  #libreria booststrap4
@@ -164,3 +165,14 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
+
+PWA_APP_NAME = "Mis Perris"
+
+PWA_APP_ICONS = [
+    {
+        'src':'/static/core/img/logo_misperris.png',
+        'sizes':'160x160'
+    }
+]
