@@ -9,7 +9,6 @@ var urlsToCache = [
     '/static/core/img/social-inst.png',
     '/static/core/img/socialfacebook.png',
     '/static/core/img/socialplus.png',
-    '/static/core/img/rescatados/*',
     'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js',
     'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
 

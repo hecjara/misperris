@@ -15,12 +15,12 @@
     height: auto;
 }
 
+
 header {
     width: 100%;
     height: auto;
     background-color: rgb(133,212,183);
     display: flex;
-    /*justify-content: space-between;*/
 }
 
 .logo {
@@ -35,7 +35,6 @@ header {
     left: 100%;
     margin:auto auto;
     margin-right:10px;
-   /*position:relative;*/
 }
 
 .navegacion ul {
