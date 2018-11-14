@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Raza, Estado, Genero, PerroFundacion
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponseRedirect, Http404
 from django_xhtml2pdf.utils import pdf_decorator
+from datetime import datetime
 
 # Create your views here.
 
-#@login_required    = para que una ventana requiera login previo
 def home(request):
     perros = PerroFundacion.objects.filter(estado=1)
     return render(request, 'core/home.html',
@@ -34,13 +34,25 @@ def listaperro(request):
     })
 
 
-@login_required
-def formulario(request):
 
+def group_required(*group_names):
+    """Requires user membership in at least one of the groups passed in."""
+    def in_groups(u):
+        if u.is_authenticated:
+            if bool(u.groups.filter(name__in=group_names)) | u.is_superuser:
+                return True
+        return False
+    return user_passes_test(in_groups)
+
+
+
+@login_required
+@group_required('Voluntario')
+def formulario(request):
     generos = Genero.objects.all()
     razas = Raza.objects.all()
     estados = Estado.objects.all()
-    perros = PerroFundacion.objects.filter(estado=1)
+    perros = PerroFundacion.objects.all()
     variables = {
         'generos': generos,
         'razas': razas,
@@ -49,10 +61,6 @@ def formulario(request):
     }
 
     if(request.POST):
-
-        #PERMISOS PARA VOLUNTARIOS Y MIEMBROS DEL STAFF
-        #if not request.user.is_staff or not request.user.is_Voluntario:
-        #    raise Http404
 
         perro = PerroFundacion()
         perro.nombre = request.POST.get('txtnombre')
@@ -89,12 +97,8 @@ def listar_perros_fundacion(request):
         'perroFundacion': perroFundacion
     })
 
-
+@group_required('Voluntario')
 def eliminar_perroFundacion(request, id):
-
-    #PERMISOS PARA VOLUNTARIOS Y MIEMBROS DEL STAFF
-    #if not request.user.is_staff or not request.user.VOLUNTARIOS:
-    #    raise Http404
 
     perroFundacion = PerroFundacion.objects.get(id=id)
 
@@ -106,14 +110,10 @@ def eliminar_perroFundacion(request, id):
         mensaje = "No se ha podido eliminar"
         messages.error(request, mensaje)
 
-    return redirect('perros-fundacion')
+    return redirect('listaperro')
 
-
+@group_required('Voluntario')
 def modificar_perroFundacion(request, id):
-
-    #PERMISOS PARA VOLUNTARIOS Y MIEMBROS DEL STAFF
-    #if not request.user.is_staff or not request.user.VOLUNTARIOS:
-    #    raise Http404
 
     perro = PerroFundacion.objects.get(id=id)
     generos = Genero.objects.all()
@@ -149,15 +149,14 @@ def modificar_perroFundacion(request, id):
             messages.success(request, 'Modificado correctamente')
         except:
             messages.error(request, 'No se ha podido modificar')
-        return redirect('perros-fundacion')
+        return redirect('listaperro')
 
     return render(request, 'core/modificar_perro.html', variables)
 
 
+fechaActual = str(datetime.now().strftime('%d-%m-%Y'))
 
-
-
-@pdf_decorator(pdfname="perros.pdf")
+@pdf_decorator(pdfname="informeMisPerris_Fecha"+fechaActual+".pdf")
 def perros_pdf(request):
     perros = PerroFundacion.objects.all()
     return render(request, 'core/perros_pdf.html',{

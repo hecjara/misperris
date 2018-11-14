@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <title>Perros fundación MisPerris</title>
     <style>
-        h2{
-            color:red;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .color_verde {
+            background-color: rgb(133, 212, 183)
+        }
+
+        .titulo {
+            font-size: 17px;
+            text-align: center;
         }
     </style>
-</head>
-<body>
-    
-    <h2>Informe Perros fundación MisPerris</h2>
 
-    <table>        
-        <tr>
-            <td>Nombre</td>
-            <td>Raza</td>
-            <td>Fecha Ingreso</td>
-            <td>Fecha Nacimiento</td>
-            <td>Descripcion</td>
-            <td>Estado</td>
-            <td>Género</th>
-        </tr>
-       {% for a in perros %}
-        <tr>
-            <td>{{ a.nombre }}</td>
-            <td>{{ a.raza.nombre }}</td>
-            <td>{{ a.fechaIngreso }}</td>
-            <td>{{ a.fechaNacimiento }}</td>
-            <td>{{ a.descripcion }}</td>
-            <td>{{ a.estado.nombre }}</td>
-            <td>{{ a.genero.nombre }}</td>
-        </tr>            
-       {% endfor %}
-    </table>
+</head>
+
+<body>
+    <div class="color_verde">
+        <img src="{% static 'accounts/img/logo.png' %}" class="rounded float-left" alt="logo">
+    </div>
+
+    <p class="titulo">Informe Fundación Mis Perris Fecha: {% now "SHORT_DATETIME_FORMAT" %}</p>
+    
+    <br>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr class="success">
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Estado</th>
+                    <th>Género</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in perros %}
+                <tr>
+                    <td>{{ a.nombre }}</td>
+                    <td>{{ a.raza.nombre }}</td>
+                    <td>{{ a.fechaIngreso }}</td>
+                    <td>{{ a.fechaNacimiento }}</td>
+                    <td>{{ a.estado.nombre }}</td>
+                    <td>{{ a.genero.nombre }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
 
 
 </body>
+
 </html>
