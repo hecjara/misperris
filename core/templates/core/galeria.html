@@ -10,11 +10,15 @@
     <br>
     <div class="galeria">
         {% for g in perros2 %}
-        <a data-fancybox="gallery" data-caption="{{ g.descripcion }}" href="{{ g.imagen.url }}">
+            <!--{% if g.imagen %}-->
+
+            <a data-fancybox="gallery" data-caption="{{ g.descripcion }}" href="{{ g.imagen.url }}">
 
             <img class="galeria img" src="{{ g.imagen.url }}" alt="{{ g.descripcion }}">
 
-            {% endfor %}
+            <!--{% endif %}-->
+
+        {% endfor %}
     </div>
 </div>
 

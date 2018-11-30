@@ -9,23 +9,30 @@
         <ol class="carousel-indicators">
             <!--contador-->
             {% for p in perros %}
-            
-            <li data-target="#carouselExampleIndicators" data-slide-to="forloop.counter" class="{% if forloop.counter == 1 %}active{% endif %}"></li>
-        
-            {% endfor %}
+                <!--{% if p.imagen %}-->
+                
+                    <li data-target="#carouselExampleIndicators" data-slide-to="forloop.counter" class="{% if forloop.counter == 1 %}active{% endif %}"></li>
+                
+                {% endif %}
+            <!--{% endfor %}-->
         </ol>
         <div class="carousel-inner">
             <!--ciclo for-->
             {% for p in perros %}
-            <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                <!--{% if p.imagen %}-->
                 
-                <img class="d-block w-70 imagen_landing" src="{{ p.imagen.url }}">
+                    <div class="carousel-item{% if forloop.first %} active{% endif %}">
+                        
+                        <img class="d-block w-70 imagen_landing" src="{{ p.imagen.url }}">
+                        
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="texto_carusel">{{ p.nombre }}</h5>
+                            <p class="texto_carusel">{{ p.descripcion }}</p>
+                        </div>
+                    </div>
                 
-                <div class="carousel-caption d-none d-md-block">
-                    <h5 class="texto_carusel">{{ p.nombre }}</h5>
-                    <p class="texto_carusel">{{ p.descripcion }}</p>
-                </div>
-            </div>
+                <!--{% endif %}-->
+
             {% endfor %}
 
         </div>
