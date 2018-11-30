@@ -30,8 +30,7 @@ class PerroFundacion(models.Model):
     fechaNacimiento = models.DateField(verbose_name="Fecha Nacimiento")
     descripcion = models.CharField(max_length=100, verbose_name="Descripción")
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
-    imagen = models.FileField(default="perro.jpg", blank=True)
-    
+    imagen = models.ImageField(null=True)    
 
     def __str__(self):
         return self.nombre

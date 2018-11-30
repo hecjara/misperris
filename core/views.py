@@ -17,10 +17,8 @@ def home(request):
 
 
 def galeria(request):
-    perros = PerroFundacion.objects.filter(estado=1)
     perros2 = PerroFundacion.objects.filter(estado=2)
     return render(request, 'core/galeria.html',{
-        'perros':perros,
         'perros2':perros2
 
     })

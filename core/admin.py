@@ -3,7 +3,7 @@ from.models import Raza, Estado, Genero, PerroFundacion
 # Register your models here.
 
 class PerroFundacionAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'raza', 'genero', 'fechaIngreso', 'fechaNacimiento', 'descripcion', 'estado', 'imagen')
+    list_display = ('nombre', 'raza', 'genero', 'fechaIngreso', 'fechaNacimiento', 'descripcion', 'estado', 'imagen') 
     search_fields = ('nombre', 'raza', 'genero', 'fechaIngreso', 'fechaNacimiento', 'descripcion', 'estado')
     list_filter = ('raza', 'genero', 'estado')
 
